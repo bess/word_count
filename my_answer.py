@@ -7,6 +7,9 @@ import re
 a_tale_of_two_cities = open('98-0.txt', encoding="utf8")
 stopwords_from_file = open('stopwords', encoding="utf8")
 
+# Note: Using more thorough punctuation cleaning works but gives a different
+# word count answer, so I switched to only removing the same punctuation the
+# example problem used.
 def clean_word(dirty_word):
     clean = dirty_word.lower()
     clean = clean.replace(".","")
@@ -34,9 +37,22 @@ for line in a_tale_of_two_cities:
     for word in words_in_line:
         add_to_dictionary(clean_word(word))
 
-# print(word_dict)
-# print(stopwords_dict)
+sorted_dict = sorted(word_dict.items(), key=lambda x:x[1], reverse=True)
+for i in range(0,11):
+    print(sorted_dict[i])
 
-sorted_dict = sorted(word_dict.items(), key=lambda x:x[1])
-print(sorted_dict)
+# Top word count values in the provided A Tale of Two Cities file are:
+# ('said', 642)
+# ('mr', 616)
+# ('one', 420)
+# ('lorry', 313)
+# ('will', 290)
+# ('upon', 289)
+# ('little', 264)
+# ('man', 259)
+# ('defarge', 259)
+# ('time', 236)
+# ('hand', 231)
+
+# This matches the answer provided.
 # pdb.set_trace()

@@ -38,7 +38,7 @@ for line in a_tale_of_two_cities:
         add_to_dictionary(clean_word(word))
 
 sorted_dict = sorted(word_dict.items(), key=lambda x:x[1], reverse=True)
-for i in range(0,11):
+for i in range(0,10):
     print(f'{sorted_dict[i][1]}\t{sorted_dict[i][0]}')
 
 # Top word count values in the provided A Tale of Two Cities file are:
@@ -52,7 +52,6 @@ for i in range(0,11):
 # 259     man
 # 259     defarge
 # 236     time
-# 231     hand
 
 # This matches the answer provided.
 # pdb.set_trace()
